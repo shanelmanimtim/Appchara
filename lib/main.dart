@@ -1,25 +1,71 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MaterialApp(
+void main() => runApp(MaterialApp(
     home:Scaffold(
-      appBar: AppBar(
-        title: Center(
-          child: Text('APPchara'),
-        ),
-        backgroundColor: Colors.cyan[300],
-      ),
-      body: Center(
-        child: Image.network('https://www.hungryhuy.com/wp-content/uploads/atchara-pickle-jars.jpg')
-          ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){},
-        backgroundColor: Colors.cyan[300],
-        child: Icon(
-            Icons.add,
-            color: Colors.black,
+      backgroundColor: Colors.black,
+     appBar: AppBar(
+       title: Text('User Profile'),
+       backgroundColor: Colors.pinkAccent,
+       centerTitle: true,
+     ),
+      body: Padding(
+        padding: EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              'NAME',
+              style: TextStyle(
+                fontSize: 35.0,
+                color: Colors.white,
+                letterSpacing: 2.0,
+              ),
+            ),
+            Text(
+              'Shanel Ann Manimtim',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                fontSize: 30.0
+              ),
+            ),
+            SizedBox(height: 30.0,),
+            Text(
+              'YEAR',
+              style: TextStyle(
+                fontSize: 35.0,
+                color: Colors.white,
+                letterSpacing: 2.0,
+              ),
+            ),
+            Text(
+              '4th Year',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                fontSize: 30.0,
+              ),
+            ),
+            SizedBox(height: 30.0,),
+            Text(
+              'EMAIL',
+              style: TextStyle(
+                fontSize: 35.0,
+                color: Colors.white,
+                letterSpacing: 2.0,
+              ),
+            ),
+            Text(
+              'manimtimshanelm@gmail.com',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                fontSize: 30.0,
+              ),
+            ),
+          ],
         ),
       ),
     ),
   ));
-}
+
