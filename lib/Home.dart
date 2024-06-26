@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  int year = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -22,14 +29,15 @@ class Home extends StatelessWidget {
               children: <Widget>[
                 Center(
                   child: CircleAvatar(
-                    child: Image.asset('assets/cancan.png'),
+                    backgroundImage: AssetImage('assets/cancan.png'),
+                    backgroundColor: Colors.grey,
                     radius: 50.0,
                   ),
                 ),
                 Divider(
                   height: 70.0,
                   color: Colors.white70,
-                  thickness: 10.0,
+                  thickness: 5.0,
                 ),
                 Row(
                   children: [
@@ -37,13 +45,13 @@ class Home extends StatelessWidget {
                       Icons.person_2,
                       color: Colors.white70,
                     ),
-                    SizedBox(width: 3.0,),
+                    SizedBox(width: 4.0,),
                     Text(
                       'NAME',
                       style: TextStyle(
-                        fontSize: 35.0,
+                        fontSize: 25.0,
                         color: Colors.white,
-                        letterSpacing: 2.0,
+                        letterSpacing: 1.0,
                       ),
                     ),
                   ],
@@ -53,41 +61,59 @@ class Home extends StatelessWidget {
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
-                      fontSize: 30.0
+                      fontSize: 20.0
                   ),
                 ),
                 SizedBox(height: 30.0,),
-                Text(
-                  'YEAR',
-                  style: TextStyle(
-                    fontSize: 35.0,
-                    color: Colors.white,
-                    letterSpacing: 2.0,
-                  ),
+                Row(
+                  children: [
+                    Icon(
+                      Icons.calendar_month_sharp,
+                      color: Colors.grey,
+                    ),
+                    SizedBox(width: 4.0,),
+                    Text(
+                      'YEAR',
+                      style: TextStyle(
+                        fontSize: 25.0,
+                        color: Colors.white,
+                        letterSpacing: 1.0,
+                      ),
+                    ),
+                  ],
                 ),
                 Text(
-                  '4th Year',
+                  '$year Year',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
-                    fontSize: 30.0,
+                    fontSize: 20.0,
                   ),
                 ),
                 SizedBox(height: 30.0,),
-                Text(
-                  'EMAIL',
-                  style: TextStyle(
-                    fontSize: 35.0,
-                    color: Colors.white,
-                    letterSpacing: 2.0,
-                  ),
+                Row(
+                  children: [
+                    Icon(
+                      Icons.email_sharp,
+                      color: Colors.grey,
+                    ),
+                    SizedBox(width: 4.0,),
+                    Text(
+                      'EMAIL',
+                      style: TextStyle(
+                        fontSize: 25.0,
+                        color: Colors.white,
+                        letterSpacing: 1.0,
+                      ),
+                    ),
+                  ],
                 ),
                 Text(
                   'manimtimshanelm@gmail.com',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
-                    fontSize: 30.0,
+                    fontSize: 20.0,
                   ),
                 ),
               ],
@@ -96,8 +122,20 @@ class Home extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 ElevatedButton(
-                    onPressed: (){},
-                    child: Text('Add Year'),
+                    onPressed: (){
+                      setState(() {
+                        year += 1;
+                      });
+                    },
+                    child: Text(
+                        'Add Year',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 16.0,
+                        letterSpacing: 1.0,
+                        fontWeight: FontWeight.bold
+                      ),
+                    ),
                 ),
               ],
             ),
