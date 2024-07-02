@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 
-class Signup extends StatefulWidget {
-  const Signup({super.key});
+class Login extends StatefulWidget {
+  const Login({super.key});
 
   @override
-  State<Signup> createState() => _SignupState();
+  State<Login> createState() => _LoginState();
 }
 
-class _SignupState extends State<Signup> {
+class _LoginState extends State<Login> {
   final formKey = GlobalKey<FormState>();
-  String name = '';
   String email = '';
   String password = '';
 
@@ -22,10 +21,10 @@ class _SignupState extends State<Signup> {
         child: Padding(
           padding: EdgeInsets.fromLTRB(15.0, 50.0, 10.0, 0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Text(
-                'Lets Get Started',
+                'Login your account',
                 style: TextStyle(
                   fontWeight: FontWeight.w700,
                   letterSpacing: 2.0,
@@ -38,27 +37,6 @@ class _SignupState extends State<Signup> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
-                    TextFormField(
-                      maxLength: 50,
-                      decoration: InputDecoration(
-                        label: Text('Name'),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20.0),
-                        )
-                      ),
-                      validator: (value){
-                        if(value == null || value.isEmpty){
-                          return 'LAGYAN NGG PANGALAN!';
-                        }
-                        if(value.length < 2){
-                          return 'DAPAT TATLONG LETRA PATAAS, boyop!';
-                        }
-                        return null;
-                      },
-                      onSaved: (value){
-                        name = value!;
-                      },
-                    ),
                     SizedBox(height: 30.0,),
                     TextFormField(
                       keyboardType: TextInputType.emailAddress,
@@ -77,7 +55,7 @@ class _SignupState extends State<Signup> {
                         email = value!;
                       },
                     ),
-                   SizedBox(height: 30.0,),
+                    SizedBox(height: 30.0,),
                     TextFormField(
                       obscureText: true,
                       decoration: InputDecoration(
@@ -104,26 +82,25 @@ class _SignupState extends State<Signup> {
                     ),
                     SizedBox(height: 25.0,),
                     ElevatedButton(
-                        onPressed: (){
-                           if(formKey.currentState!.validate()){
-                             formKey.currentState!.save();
-                             print(name);
-                             print(email);
-                             print(password);
-                           }
-                        },
-                        child: Text('Sign Up'),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.pinkAccent,
-                          foregroundColor: Colors.white,
-                        ),
+                      onPressed: (){
+                        if(formKey.currentState!.validate()){
+                          formKey.currentState!.save();
+                          print(email);
+                          print(password);
+                        }
+                      },
+                      child: Text('Login'),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.pinkAccent,
+                        foregroundColor: Colors.white,
+                      ),
                     ),
                     SizedBox(height: 50.0,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text(
-                          'Already have an account?',
+                          'Dont have an account?',
                           style: TextStyle(
                             color: Colors.black
                           ),
@@ -131,12 +108,12 @@ class _SignupState extends State<Signup> {
                         SizedBox(width: 5.0,),
                         InkWell(
                           child: Text(
-                            'Login here',
+                            'Signup here',
                             style: TextStyle(
                               color: Colors.pink
                             ),
                           ),
-                          onTap: () => Navigator.popAndPushNamed(context, '/Login'),
+                          onTap: () => Navigator.popAndPushNamed(context, '/Signup'),
                         ),
                       ],
                     ),
@@ -150,3 +127,4 @@ class _SignupState extends State<Signup> {
     );
   }
 }
+
