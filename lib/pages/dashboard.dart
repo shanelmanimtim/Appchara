@@ -11,28 +11,47 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Home'),
-        backgroundColor: Colors.white,
-      ),
+     bottomNavigationBar: BottomNavigationBar(
+       elevation: 3.0,
+       onTap: (int val){
+         switch(val){
+           case 0:
+             Navigator.pushNamed(context, '/');
+             break;
+           case 1:
+             Navigator.pushNamed(context, '/menu');
+             break;
+           case 2:
+             Navigator.pushNamed(context, 'profile');
+         }
+       },
+       currentIndex: 0,
+       items: const [
+         BottomNavigationBarItem(
+             icon: Icon(Icons.home),
+            label: 'Home',
+         ),
+         BottomNavigationBarItem(
+             icon: Icon(Icons.fastfood),
+            label: 'Fast food',
+         ),
+         BottomNavigationBarItem(
+             icon: Icon(Icons.person),
+           label: 'Profile'
+         ),
+       ],
+     ),
       backgroundColor: Colors.pinkAccent,
       body: Container(
         child: SafeArea(
           child: Center(
             child: Column(
               children: [
-                    ElevatedButton(
-                      onPressed: (){
-                        Navigator.pushNamed(context, '/menu');
-                      },
-                      child: Text('Pumarine ka sa dashboard'),
-                    ),
-                    ElevatedButton(
-                      onPressed: (){
-                        Navigator.pushNamed(context, '/profile');
-                      },
-                      child: Text('Pumarine ka sa profile'),
-                    ),
+                Center(
+                  child: Image(
+                    image: AssetImage('assets/appchara.png'),
+                  ),
+                ),
                 ],
                ),
             ),

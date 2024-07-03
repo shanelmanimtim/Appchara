@@ -14,7 +14,7 @@ class Product{
     return switch(json){
       {
         'id': int id,
-        'productName' : String productName,
+        'productname' : String productName,
         'description' : String description,
         'price' : double price
     } =>
