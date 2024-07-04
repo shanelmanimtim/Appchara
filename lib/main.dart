@@ -7,7 +7,7 @@ void main() {
         title: Center(
           child: Text('APPchara'),
         ),
-        backgroundColor: Colors.blue[300],
+        backgroundColor: Colors.yellow[300],
       ),
       body: Center(
           child: Image.network(
