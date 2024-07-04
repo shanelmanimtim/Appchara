@@ -20,6 +20,7 @@ class _MenuState extends State<Menu> {
     );
     final data = jsonDecode(response.body);
     List products = <Product>[];
+    print(data);
     for(var product in data){
       products.add(Product.fromJson(product));
     }
@@ -61,13 +62,26 @@ class _MenuState extends State<Menu> {
             }
             if(snapshots.hasData){
               List products = snapshots.data!;
-              for(var product in products){
-                return Card(
-                  child: ListTile(
-                    title: Text(product.productName),
-                  ),
-                );
+              print(products);
+              return Padding(
+                padding: EdgeInsets.all(3.0),
+                child: ListView.builder(
+                    itemCount: products.length,
+                  itemBuilder: (context, index){
+                      return Card(
+                        child: Column(
+                          children: [
+                            Text(products[index].productName),
+                            Text(products[index].price.toString()),
+                          ],
+                        ),
+                      );
+                  }
+                ),
+              );
               }
+            if(snapshots.hasError){
+              print(snapshots.error);
             }
             return Center(
               child: Text('Unable to load data'),

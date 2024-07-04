@@ -16,6 +16,7 @@ class _LoginState extends State<Login> {
 
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
@@ -87,6 +88,7 @@ class _LoginState extends State<Login> {
                           formKey.currentState!.save();
                           print(email);
                           print(password);
+                          Navigator.pushReplacementNamed(context, '/');
                         }
                       },
                       child: Text('Login'),
