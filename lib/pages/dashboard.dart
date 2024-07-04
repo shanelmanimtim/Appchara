@@ -16,15 +16,19 @@ class _DashboardState extends State<Dashboard> {
        onTap: (int val){
          switch(val){
            case 0:
-             Navigator.pushNamed(context, '/');
+             Navigator.pushNamed(context, '/Menu');
              break;
            case 1:
-             Navigator.pushNamed(context, '/menu');
+             Navigator.pushNamed(context, '/Login');
              break;
            case 2:
-             Navigator.pushNamed(context, 'profile');
+             Navigator.pushNamed(context, '/Signup');
+             break;
+           case 3:
+             Navigator.pushNamed(context, '/profile');
          }
        },
+       backgroundColor: Colors.pink,
        currentIndex: 0,
        items: const [
          BottomNavigationBarItem(
@@ -32,8 +36,12 @@ class _DashboardState extends State<Dashboard> {
             label: 'Home',
          ),
          BottomNavigationBarItem(
-             icon: Icon(Icons.fastfood),
-            label: 'Fast food',
+             icon: Icon(Icons.login),
+            label: 'Login',
+         ),
+         BottomNavigationBarItem(
+             icon: Icon(Icons.logo_dev_sharp),
+           label: 'Signup'
          ),
          BottomNavigationBarItem(
              icon: Icon(Icons.person),
