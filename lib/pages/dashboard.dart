@@ -50,7 +50,7 @@ class _DashboardState extends State<Dashboard> {
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            backgroundColor: Colors.pinkAccent,
+            backgroundColor: Colors.pink,
             label: 'Home',
           ),
           BottomNavigationBarItem(
