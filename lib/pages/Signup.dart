@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 
 class Signup extends StatefulWidget {
@@ -19,9 +21,14 @@ class _SignupState extends State<Signup> {
     final response = await http.post(
       Uri.parse('http://10.0.2.2:8080/api/v1/auth/register/user'),
       headers : <String, String>{
-        'Context-Type' :
-      }
-    )
+        'Context-Type' : 'application/json; charset=UTF-8'
+      },
+      body: jsonEncode(<String, dynamic>{
+        'username' : user.username,
+        'email' : user.email,
+        'password' : user.password,
+      }),
+    );
   }
 
   @override
