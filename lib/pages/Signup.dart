@@ -12,6 +12,17 @@ class _SignupState extends State<Signup> {
   String name = '';
   String email = '';
   String password = '';
+  bool _obscure = true;
+  IconData _obscureIcon = Icons.visibility_off;
+
+  createAccount(User user) async{
+    final response = await http.post(
+      Uri.parse('http://10.0.2.2:8080/api/v1/auth/register/user'),
+      headers : <String, String>{
+        'Context-Type' :
+      }
+    )
+  }
 
   @override
 
@@ -80,9 +91,23 @@ class _SignupState extends State<Signup> {
                     ),
                    SizedBox(height: 30.0,),
                     TextFormField(
-                      obscureText: true,
+                      obscureText: _obscure,
                       decoration: InputDecoration(
                         label: Text('Password'),
+                        prefixIcon: Icon(Icons.lock_rounded),
+                        suffixIcon: IconButton(
+                          icon: Icon(_obscureIcon),
+                          onPressed: (){
+                            setState(() {
+                              _obscure = !_obscure;
+                              if(_obscure){
+                                _obscureIcon = Icons.visibility_off;
+                              }else{
+                                _obscureIcon = Icons.visibility;
+                              }
+                            });
+                          },
+                        ),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20.0),
                         ),
