@@ -42,7 +42,7 @@ class _DashboardState extends State<Dashboard> {
                             decoration: BoxDecoration(
                               color: Colors.pink
                             ),
-                            child: Text('text $i', style: TextStyle(fontSize: 15.0),)
+                            child: Image.asset('assets/appchara.png'),
                           );
                         },
                       );
