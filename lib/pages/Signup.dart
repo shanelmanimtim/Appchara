@@ -1,6 +1,8 @@
 import 'dart:convert';
 
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'package:untitled1/services/User.dart';
 
 class Signup extends StatefulWidget {
   const Signup({super.key});
@@ -21,14 +23,15 @@ class _SignupState extends State<Signup> {
     final response = await http.post(
       Uri.parse('http://10.0.2.2:8080/api/v1/auth/register/user'),
       headers : <String, String>{
-        'Context-Type' : 'application/json; charset=UTF-8'
+        'Content-Type' : 'application/json; charset=UTF-8' // --------------------------
       },
       body: jsonEncode(<String, dynamic>{
         'username' : user.username,
         'email' : user.email,
-        'password' : user.password,
+        'password' : user.password
       }),
     );
+    print(response.body);
   }
 
   @override
@@ -91,6 +94,7 @@ class _SignupState extends State<Signup> {
                         if(value == null || value.isEmpty){
                           return 'MAGLAGAY KA DAW, BOBO!';
                         }
+                        return null; // ----------------------------------------
                       },
                       onSaved: (value){
                         email = value!;
@@ -140,9 +144,12 @@ class _SignupState extends State<Signup> {
                         onPressed: (){
                            if(formKey.currentState!.validate()){
                              formKey.currentState!.save();
-                             print(name);
-                             print(email);
-                             print(password);
+                             User user = User(
+                                 username: name,
+                                 email: email,
+                                 password: password
+                             );
+                             createAccount(user);
                            }
                         },
                         child: Text('Sign Up'),
