@@ -33,7 +33,7 @@ class _selectedProductState extends State<selectedProduct> {
         ),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
         children: [
           Text(widget.product.productName),
           Text(widget.product.description),

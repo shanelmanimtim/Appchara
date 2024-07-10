@@ -139,6 +139,7 @@ class _LoginState extends State<Login> {
                                 }
                             );
                           });
+                         Navigator.pushReplacementNamed(context, '/');
                         }
                       },
                       child: buttonContent,

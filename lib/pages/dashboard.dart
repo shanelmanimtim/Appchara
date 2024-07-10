@@ -27,13 +27,16 @@ class _DashboardState extends State<Dashboard> {
                       image: AssetImage('assets/appchara.png'),
                     ),
                   ),
-                  FlutterCarousel(
+                  ExpandableCarousel(
                       options: CarouselOptions(
-                        height: 300.0,
-                        showIndicator: true,
-                        slideIndicator: CircularWaveSlideIndicator(),
+                        autoPlay: true,
+                        autoPlayInterval: const Duration(seconds: 5),
                       ),
-                    items: [1,2,3].map((i) {
+                    items: [
+                      'assets/Atchara.jpg',
+                      'assets/achara2.jpg',
+                      'assets/achara-11.webp',
+                    ].map((String imagePath) {
                       return Builder(
                         builder: (BuildContext context) {
                           return Container(
@@ -42,7 +45,13 @@ class _DashboardState extends State<Dashboard> {
                             decoration: BoxDecoration(
                               color: Colors.pink
                             ),
-                            child: Image.asset('assets/appchara.png'),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10.0),
+                              child: Image.asset(
+                                imagePath,
+                                fit: BoxFit.cover,
+                              ),
+                            )
                           );
                         },
                       );
