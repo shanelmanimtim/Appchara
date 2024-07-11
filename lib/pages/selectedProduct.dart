@@ -35,9 +35,20 @@ class _selectedProductState extends State<selectedProduct> {
       body: Column(
 
         children: [
-          Text(widget.product.productName),
-          Text(widget.product.description),
-          Text(widget.product.price.toString()),
+          Image.network(widget.product.url),
+          SizedBox(height: 20.0,),
+          Text(widget.product.productName,
+          style: TextStyle(
+            fontSize: 40.0,
+            ),
+          ),
+          SizedBox(height: 20.0,),
+          Text(widget.product.description,
+          style: TextStyle(
+            fontSize: 20.0,
+          ),
+          ),
+          SizedBox(height: 20.0,),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -47,11 +58,9 @@ class _selectedProductState extends State<selectedProduct> {
                   fontSize: 20.0,
                 ),
               ),
-            ],
-          ),
-         Row(
-          children: [
-            IconButton(
+          Row(
+            children: [
+              IconButton(
                 onPressed: (){
                   setState(() {
                     if(numbersOfOrders > 1){
@@ -61,14 +70,14 @@ class _selectedProductState extends State<selectedProduct> {
                   });
                 },
                 icon: Icon(Icons.remove),
-            ),
-            Text(
-              numbersOfOrders.toString(),
-              style: TextStyle(
-                fontSize: 20.0,
               ),
-            ),
-                IconButton(
+              Text(
+                numbersOfOrders.toString(),
+                style: TextStyle(
+                  fontSize: 20.0,
+                ),
+              ),
+              IconButton(
                 onPressed:(){
                   setState(() {
                     numbersOfOrders += 1;
@@ -76,12 +85,26 @@ class _selectedProductState extends State<selectedProduct> {
                   });
                 },
                 icon: Icon(Icons.add),
+              ),
+            ],
+          ),
+        ],
+          ),
+          SizedBox(height: 50,),
+          ElevatedButton(
+            onPressed: (){
+              Navigator.pushNamed(context, '/menu');
+            }
+            , child: Text(
+            '         Add to cart      ',
+            style: TextStyle(
+              fontSize: 15.0,
+              fontWeight: FontWeight.bold,
             ),
-           ],
-         ),
+          ),
+          ),
         ],
       ),
-
     );
   }
 }

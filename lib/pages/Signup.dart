@@ -63,10 +63,10 @@ class _SignupState extends State<Signup> {
                     TextFormField(
                       maxLength: 50,
                       decoration: InputDecoration(
-                        label: Text('Name'),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20.0),
-                        )
+                          label: Text('Name'),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                          )
                       ),
                       validator: (value){
                         if(value == null || value.isEmpty){
@@ -100,7 +100,7 @@ class _SignupState extends State<Signup> {
                         email = value!;
                       },
                     ),
-                   SizedBox(height: 30.0,),
+                    SizedBox(height: 30.0,),
                     TextFormField(
                       obscureText: _obscure,
                       decoration: InputDecoration(
@@ -141,22 +141,22 @@ class _SignupState extends State<Signup> {
                     ),
                     SizedBox(height: 25.0,),
                     ElevatedButton(
-                        onPressed: (){
-                           if(formKey.currentState!.validate()){
-                             formKey.currentState!.save();
-                             User user = User(
-                                 username: name,
-                                 email: email,
-                                 password: password
-                             );
-                             createAccount(user);
-                           }
-                        },
-                        child: Text('Sign Up'),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.pinkAccent,
-                          foregroundColor: Colors.white,
-                        ),
+                      onPressed: (){
+                        if(formKey.currentState!.validate()){
+                          formKey.currentState!.save();
+                          User user = User(
+                              username: name,
+                              email: email,
+                              password: password
+                          );
+                          createAccount(user);
+                        }
+                      },
+                      child: Text('Sign Up'),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.pinkAccent,
+                        foregroundColor: Colors.white,
+                      ),
                     ),
                     SizedBox(height: 50.0,),
                     Row(
@@ -165,7 +165,7 @@ class _SignupState extends State<Signup> {
                         Text(
                           'Already have an account?',
                           style: TextStyle(
-                            color: Colors.black
+                              color: Colors.black
                           ),
                         ),
                         SizedBox(width: 5.0,),
@@ -173,7 +173,7 @@ class _SignupState extends State<Signup> {
                           child: Text(
                             'Login here',
                             style: TextStyle(
-                              color: Colors.pink
+                                color: Colors.pink
                             ),
                           ),
                           onTap: () => Navigator.popAndPushNamed(context, '/Login'),
